@@ -42,18 +42,14 @@ module.exports = {
         saveDeployments: true,
         chainId: 5,
     },
-    mainnet: {
-        url: MAINNET_RPC_URL,
-        accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
-        saveDeployments: true,
-        chainId: 1,
-    },
-    polygon: {
-        url: POLYGON_MAINNET_RPC_URL,
-        accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
-        saveDeployments: true,
-        chainId: 137,
-    },
+  },
+
+  gasReporter: {
+    enabled: REPORT_GAS,
+    currency: "USD",
+    outputFile: "gas-report.txt",
+    noColors: true,
+    // coinmarketcap: process.env.COINMARKETCAP_API_KEY,
   },
 
   solidity: "0.8.7",
@@ -66,5 +62,8 @@ module.exports = {
     player: {
       default : 1
     }
-  }
+  },
+  mocha: {
+    timeout: 500000, // 500 seconds max for running tests
+  },
 };
